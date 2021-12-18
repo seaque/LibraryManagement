@@ -1,0 +1,22 @@
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\bin\Debug\LibraryApp.exe.config
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\bin\Debug\LibraryApp.exe
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\bin\Debug\LibraryApp.pdb
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\obj\Debug\LibraryApp (UI).csprojAssemblyReference.cache
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\obj\Debug\LibraryApp.MainMenu.resources
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\obj\Debug\LibraryApp.Properties.Resources.resources
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\obj\Debug\LibraryApp (UI).csproj.GenerateResource.cache
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\obj\Debug\LibraryApp (UI).csproj.CoreCompileInputs.cache
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\obj\Debug\LibraryApp.exe
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\obj\Debug\LibraryApp.pdb
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\obj\Debug\LibraryApp (UI).csproj.CopyComplete
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\bin\Debug\MaterialSkin.dll
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\bin\Debug\BLL.dll
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\bin\Debug\Entities.dll
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\bin\Debug\DAL.dll
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\bin\Debug\BLL.pdb
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\bin\Debug\Entities.pdb
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\bin\Debug\Entities.dll.config
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\bin\Debug\DAL.pdb
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\obj\Debug\LibraryApp.Students.resources
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\obj\Debug\LibraryApp.Books.resources
+C:\Users\emirh\source\repos\LibraryManagement\LibraryApp\obj\Debug\LibraryApp.LendHand.resources

@@ -1,0 +1,10 @@
+C:\Users\emirh\source\repos\LibraryManagement\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\emirh\source\repos\LibraryManagement\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\emirh\source\repos\LibraryManagement\DAL\bin\Debug\DAL.dll
+C:\Users\emirh\source\repos\LibraryManagement\DAL\bin\Debug\DAL.pdb
+C:\Users\emirh\source\repos\LibraryManagement\DAL\bin\Debug\Entities.dll
+C:\Users\emirh\source\repos\LibraryManagement\DAL\bin\Debug\Entities.pdb
+C:\Users\emirh\source\repos\LibraryManagement\DAL\bin\Debug\Entities.dll.config
+C:\Users\emirh\source\repos\LibraryManagement\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\emirh\source\repos\LibraryManagement\DAL\obj\Debug\DAL.dll
+C:\Users\emirh\source\repos\LibraryManagement\DAL\obj\Debug\DAL.pdb
