@@ -100,12 +100,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_784DB86E901E11C93AAA3918785993B1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_473E9BC717B2497EA20D7E8AA02BD0A4"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -143,6 +137,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_0C922892186700F469FD13F231CA8337"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_784DB86E901E11C93AAA3918785993B1"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -202,6 +202,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -568,7 +576,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Library Management"
         "ProductCode" = "8:{7535023E-2161-494C-A634-AA2298A7423D}"
-        "PackageCode" = "8:{0F1F8338-081E-4220-A381-74160CDFF183}"
+        "PackageCode" = "8:{7926DC05-44B7-491B-8A3D-0E384C642A0A}"
         "UpgradeCode" = "8:{F5509A6E-746D-49A2-82EE-ECA73E59E45A}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -579,7 +587,7 @@
         "Manufacturer" = "8:Emirhan Hasanoglu"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/seaque"
-        "Title" = "8:Setup"
+        "Title" = "8:Library Management"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Emirhan Hasanoglu"
         "Keywords" = "8:"

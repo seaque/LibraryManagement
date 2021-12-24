@@ -200,12 +200,9 @@ namespace DAL
                             "from Student INNER JOIN (Book INNER JOIN LendHand ON Book.book_ISBN = LendHand.book_ISBN) " +
                             "ON Student.student_ID = LendHand.student_ID WHERE {0} LIKE '%{1}%'", column, key);
             }
+
             List<LH_Entity> lendhand = new List<LH_Entity>();
             OleDbDataReader rdr = cmd.ExecuteReader();
-            Debug.WriteLine(column);
-            Debug.WriteLine(key);
-            Debug.WriteLine(cmd.CommandText);
-
 
             while (rdr.Read())
             {

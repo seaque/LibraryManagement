@@ -241,6 +241,7 @@ namespace LibraryApp
             }
             else
             {
+                materialLabel32.Text = row.Cells[3].Value.ToString();
                 materialLabel33.Text = row.Cells[4].Value.ToString();
                 materialLabel34.Text = row.Cells[5].Value.ToString();
                 materialLabel35.Text = row.Cells[0].Value.ToString();
