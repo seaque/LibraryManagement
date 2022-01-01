@@ -178,13 +178,31 @@ namespace DAL
         public List<LH_Entity> SearchRecords(string column, string key)
         {
             OleDbCommand cmd = DBConn.GetOleDbCommand();
-            if (column == "hand_status" && key == null)
+            if (column == "hand_status")
             {
-                cmd.CommandText = String.Format("select LendHand.lh_ID, Student.student_ID, Student.student_name, Student.student_surname, " +
-                            "Book.book_ISBN, Book.book_name, LendHand.lend_date, LendHand.hand_date, LendHand.last_date, LendHand.late_fee, LendHand.hand_status " +
-                            "from Student INNER JOIN (Book INNER JOIN LendHand ON Book.book_ISBN = LendHand.book_ISBN) " +
-                            "ON Student.student_ID = LendHand.student_ID WHERE LendHand.hand_status", column, key);
+                if (key == "true")
+                {
+                    cmd.CommandText = String.Format("select LendHand.lh_ID, Student.student_ID, Student.student_name, Student.student_surname, " +
+                                "Book.book_ISBN, Book.book_name, LendHand.lend_date, LendHand.hand_date, LendHand.last_date, LendHand.late_fee, LendHand.hand_status " +
+                                "from Student INNER JOIN (Book INNER JOIN LendHand ON Book.book_ISBN = LendHand.book_ISBN) " +
+                                "ON Student.student_ID = LendHand.student_ID WHERE LendHand.hand_status = TRUE");
+                }
+                if (key == "false")
+                {
+                    cmd.CommandText = String.Format("select LendHand.lh_ID, Student.student_ID, Student.student_name, Student.student_surname, " +
+                                "Book.book_ISBN, Book.book_name, LendHand.lend_date, LendHand.hand_date, LendHand.last_date, LendHand.late_fee, LendHand.hand_status " +
+                                "from Student INNER JOIN (Book INNER JOIN LendHand ON Book.book_ISBN = LendHand.book_ISBN) " +
+                                "ON Student.student_ID = LendHand.student_ID WHERE LendHand.hand_status = FALSE");
+                }
+                if (key == "limbo")
+                {
+                    cmd.CommandText = String.Format("select LendHand.lh_ID, Student.student_ID, Student.student_name, Student.student_surname, " +
+                                "Book.book_ISBN, Book.book_name, LendHand.lend_date, LendHand.hand_date, LendHand.last_date, LendHand.late_fee, LendHand.hand_status " +
+                                "from Student INNER JOIN (Book INNER JOIN LendHand ON Book.book_ISBN = LendHand.book_ISBN) " +
+                                "ON Student.student_ID = LendHand.student_ID WHERE DateDiff('d', Now(), [LendHand.last_date]) = 2");
+                }
             }
+
             //Alanlar foreign key içerdiğinden sorguda seçilecek tablo kod kısmında belirlenir
             else if (column == "book_ISBN" || column == "student_ID")
             {

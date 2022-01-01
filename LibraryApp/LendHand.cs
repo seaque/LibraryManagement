@@ -209,26 +209,33 @@ namespace LibraryApp
         {
             dgv_hand.DataSource = lh.SearchRecords(materialCBox_HandSearch.Text, materialTxt_HandSearch.Text);
         }
-
-        private void materialCheckbox1_CheckedChanged(object sender, EventArgs e)
+        private void materialCBox_list_filter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (materialCheckbox1.Checked)
-                dgv_hand.DataSource = lh.SearchRecords("hand_status", null);
-            else if (!materialCheckbox1.Checked)
+            if (materialCBox_list_filter.Text == "All")
+                dgv_lh_list.DataSource = lh.GetRecords();
+            if (materialCBox_list_filter.Text == "Green")
+                dgv_lh_list.DataSource = lh.SearchRecords("hand_status", "true");
+            if (materialCBox_list_filter.Text == "Red")
+                dgv_lh_list.DataSource = lh.SearchRecords("hand_status", "false");
+            else if (materialCBox_list_filter.Text == "Yellow")
+                dgv_lh_list.DataSource = lh.SearchRecords("hand_status", "limbo");
+        }
+
+        private void materialCBox_filter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (materialCBox_filter.Text == "All")
                 dgv_hand.DataSource = lh.GetRecords();
+            if (materialCBox_filter.Text == "Green")
+                dgv_hand.DataSource = lh.SearchRecords("hand_status", "true");
+            if (materialCBox_filter.Text == "Red")
+                dgv_hand.DataSource = lh.SearchRecords("hand_status", "false");
+            else if (materialCBox_filter.Text == "Yellow")
+                dgv_hand.DataSource = lh.SearchRecords("hand_status", "limbo");
         }
 
         private void materialTextBox4_TextChanged(object sender, EventArgs e)
         {
             dgv_lh_list.DataSource = lh.SearchRecords(materialCBox_ListSearch.Text, materialTxt_ListSearch.Text);
-        }
-
-        private void materialCheckbox2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (materialCheckbox2.Checked)
-                dgv_lh_list.DataSource = lh.SearchRecords("hand_status", null);
-            else if (!materialCheckbox2.Checked)
-                dgv_lh_list.DataSource = lh.GetRecords();
         }
 
         private void dgv_hand_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -294,15 +301,13 @@ namespace LibraryApp
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             dgv_hand.DataSource = lh.GetRecords();
-            materialCheckbox1.Checked = false;
-            materialCheckbox2.Checked = false;
+            materialCBox_filter.Text = "All";
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             dgv_lh_list.DataSource = lh.GetRecords();
-            materialCheckbox1.Checked = false;
-            materialCheckbox2.Checked = false;
+            materialCBox_filter.Text = "All";
         }
     }
 }
