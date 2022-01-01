@@ -1,4 +1,4 @@
-Kütüphane Dosyası: *C:\Users\username\AppData\Roaming\LibraryManagement*
+Kütüphane Veritabanı Dosyası: *C:\Users\username\AppData\Roaming\LibraryManagement*
 <hr>
 
 ### Katmanlı Mimari
