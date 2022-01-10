@@ -44,6 +44,7 @@ namespace LibraryApp
 
         private void LendHand_Load(object sender, EventArgs e)
         {
+            //DataGridView veri ataması ve sütun isimleri kontrolleri
             dgv_lh_books.DataSource = bk.GetBooks();
             #region DATAGRIDVIEW COLUMN NAMES
             dgv_lh_books.Columns[0].HeaderCell.Value = "ISBN";
@@ -98,11 +99,14 @@ namespace LibraryApp
             dgv_hand.Columns[10].HeaderCell.Value = "Hand Status";
             #endregion
 
+            //Sütunların renklendirilmesi için form
+            //yüklendiğinde güncelleme fonksiyonu çağırılıyor
             UpdateTable();
         }
 
         private void UpdateTable()
         {
+            //Her geçen gün için 1₺ ceza ekler
             lh.SetLateFee();
 
             dgv_lh_list.DataSource = lh.GetRecords();
@@ -114,6 +118,8 @@ namespace LibraryApp
             ColorTable(dgv_lh_list);
         }
 
+        //Satırları Yeşil: kitap geri verilmiş, Sarı: son güne 2 gün veya daha az kalmış,
+        //Kırmızı: Son tarihi geçmiş olarak renklere ayırır
         private void ColorTable(DataGridView dg)
         {
             DateTime now = DateTime.Now;
@@ -121,21 +127,24 @@ namespace LibraryApp
             for (int i = 0; i < dg.Rows.Count; i++)
             {
                 DateTime date = Convert.ToDateTime(dg.Rows[i].Cells[7].Value.ToString());
-                System.TimeSpan differ = date.Subtract(now);
-                int value = Convert.ToInt32(differ.Days.ToString());
-                
+                System.TimeSpan differ = date.Subtract(now); 
+                int value = Convert.ToInt32(differ.Days.ToString()); //Kitabı son verme tarihi ile bugün arasındaki fark
+
                 if (Boolean.Parse(dg.Rows[i].Cells[10].Value.ToString()) == true)
                 {
                     dg.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(80, 225, 60);
                 }
+                //Fark 2'den büyükse satır varsayılan renk olarak kalır
                 else if (value > 2)
                 {
                     dg.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(242, 242, 242);
                 }
+                //Teslim tarihine 2 gün veya daha az kalmışsa satır arkaplanı sarı olur
                 else if (value <= 2 && value >= 0)
                 {
                     dg.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(250, 210, 10);
                 }
+                //Teslim tarihi geçmişse satır arkaplanı kırmızı olur
                 else if (value < 0)
                 {
                     dg.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(250, 85, 85);
@@ -143,6 +152,7 @@ namespace LibraryApp
             }
         }
 
+        //Tıklanan hücredeki öğrenci bilgilerini labellara geçirir
         private void dgv_lh_students_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -155,6 +165,7 @@ namespace LibraryApp
             }
         }
 
+        //Tıklanan hücredeki kitap bilgilerini labellara geçirir
         private void dgv_lh_books_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = this.dgv_lh_books.Rows[e.RowIndex];

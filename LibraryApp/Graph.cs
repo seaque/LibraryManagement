@@ -41,14 +41,17 @@ namespace LibraryApp
 
         private void Graph_Load(object sender, System.EventArgs e)
         {
+            //ZedGraph grafik ayarları için obje oluşturuluyor
             GraphPane zedgraph;
             zedgraph = zedGraphControl1.GraphPane;
 
+            //Barları dolduracak olan değerler
             double[] b = { 0 };
             double[] h = { 0 };
             b[0] = bk.CountBooks();
             h[0] = lh.CountHandedBooks();
 
+            //ZedGraph başlık
             zedgraph.Title.Text = "Library Statistics";
 
             PointPairList pl = new PointPairList(b, h);

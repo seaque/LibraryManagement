@@ -47,6 +47,7 @@ namespace LibraryApp
         
         private void Books_Load(object sender, EventArgs e)
         {
+            //DataGridView veri ataması ve sütun isimleri kontrolleri
             dgv_books_list.DataSource = bk.GetBooks();
             #region DATAGRIDVIEW COLUMN NAMES & FORMATTING
             dgv_books_list.Columns[0].HeaderCell.Value = "ISBN";
@@ -93,13 +94,8 @@ namespace LibraryApp
             dgv_books_hst.Columns[6].HeaderCell.Value = "Publisher";
             #endregion
 
-            materialCBox_add_category.DataSource = bk.GetCategories();
-            materialCBox_add_writer.DataSource = bk.GetWriters();
-            materialCBox_add_publisher.DataSource = bk.GetPublishers();
-
-            materialCbox_UpdCategory.DataSource = bk.GetCategories();
-            materialCBox_UpdWriter.DataSource = bk.GetWriters();
-            materialCBox_UpdPublisher.DataSource = bk.GetPublishers();
+            //Ekleme ve güncelleme sayfalarında ComboBox güncellemesi
+            UpdateComboBox();
         }
 
         //Kategori, Yazar, Yayıncı ekleme kısmının + sembolü ile kontrolü
@@ -193,6 +189,17 @@ namespace LibraryApp
             dgv_books_list.DataSource = bk.GetBooks();
             dgv_books_upd.DataSource = bk.GetBooks();
             dgv_books_rmv.DataSource = bk.GetBooks();
+        }
+
+        private void UpdateComboBox()
+        {
+            materialCBox_add_category.DataSource = bk.GetCategories();
+            materialCBox_add_writer.DataSource = bk.GetWriters();
+            materialCBox_add_publisher.DataSource = bk.GetPublishers();
+
+            materialCbox_UpdCategory.DataSource = bk.GetCategories();
+            materialCBox_UpdWriter.DataSource = bk.GetWriters();
+            materialCBox_UpdPublisher.DataSource = bk.GetPublishers();
         }
 
         //Formdaki bilgilerle Entity değişkeni doldurulur ve ekleme sağlanır
