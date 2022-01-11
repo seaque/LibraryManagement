@@ -1,4 +1,4 @@
-Kütüphane Veritabanı Dosyası: *%appdata%\LibraryManagement*
+Kütüphane Veritabanı Dosyası: *%appdata%/LibraryManagement*
 <hr>
 
 ### Üç Katmanlı Mimari
