@@ -203,7 +203,8 @@ namespace DAL
                 }
             }
 
-            //Alanlar foreign key içerdiğinden sorguda seçilecek tablo kod kısmında belirlenir
+            //Foreign key olan alanlar aynı adlı olduğundan değeri
+            //hangi tablodan alacağı sorgu kısmında belirleniyor
             else if (column == "book_ISBN" || column == "student_ID")
             {
                 cmd.CommandText = String.Format("select LendHand.lh_ID, Student.student_ID, Student.student_name, Student.student_surname, " +

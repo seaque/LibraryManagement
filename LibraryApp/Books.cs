@@ -43,7 +43,6 @@ namespace LibraryApp
             );
 
         }
-
         
         private void Books_Load(object sender, EventArgs e)
         {
@@ -101,7 +100,7 @@ namespace LibraryApp
         //Kategori, Yazar, Yayıncı ekleme kısmının + sembolü ile kontrolü
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            //Nesnelerin görünümü döngü sağlayacak şekilde ayarlanır
+            //Döngüsel görünüm
             ClickCount = ClickCount + 1;
 
             if (ClickCount % 2 == 0)
@@ -122,7 +121,7 @@ namespace LibraryApp
         //Kategori, Yazar, Yayıncı ekleme
         private void materialBtn_AddCWP_Click(object sender, EventArgs e)
         {
-            //Radyo butonunda seçilen değere göre ekleme yapılır
+            //Radyo butonunda seçilen değer kontrolü
             if (materialRadiobtn_category.Checked == true)
             {
                 bk_entity.book_category = materialTxt_plus.Text;
@@ -202,7 +201,7 @@ namespace LibraryApp
             materialCBox_UpdPublisher.DataSource = bk.GetPublishers();
         }
 
-        //Formdaki bilgilerle Entity değişkeni doldurulur ve ekleme sağlanır
+        //Formdaki bilgiler Entity objesine atanır ve ekleme sağlanır
         private void materialBtn_add_submit_Click(object sender, EventArgs e)
         {
             try

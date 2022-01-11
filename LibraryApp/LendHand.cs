@@ -99,14 +99,14 @@ namespace LibraryApp
             dgv_hand.Columns[10].HeaderCell.Value = "Hand Status";
             #endregion
 
-            //Sütunların renklendirilmesi için form
-            //yüklendiğinde güncelleme fonksiyonu çağırılıyor
+            //Sütunların uygulama açıldığında renklendirilmesi
+            //için güncelleme fonksiyonu çağırılıyor
             UpdateTable();
         }
 
         private void UpdateTable()
         {
-            //Her geçen gün için 1₺ ceza ekler
+            //Son tarihten sonra her geçen gün için 1₺ ceza ekler
             lh.SetLateFee();
 
             dgv_lh_list.DataSource = lh.GetRecords();
@@ -118,8 +118,10 @@ namespace LibraryApp
             ColorTable(dgv_lh_list);
         }
 
-        //Satırları Yeşil: kitap geri verilmiş, Sarı: son güne 2 gün veya daha az kalmış,
-        //Kırmızı: Son tarihi geçmiş olarak renklere ayırır
+        //DataGridView satırlarını renklendirir;
+        //Yeşil: kitap son tarihten önce geri verilmiş
+        //Sarı: Son tarihe 2 gün veya daha az kalmış
+        //Kırmızı: Son tarihi geçmiş
         private void ColorTable(DataGridView dg)
         {
             DateTime now = DateTime.Now;
@@ -128,23 +130,24 @@ namespace LibraryApp
             {
                 DateTime date = Convert.ToDateTime(dg.Rows[i].Cells[7].Value.ToString());
                 System.TimeSpan differ = date.Subtract(now); 
-                int value = Convert.ToInt32(differ.Days.ToString()); //Kitabı son verme tarihi ile bugün arasındaki fark
+                int value = Convert.ToInt32(differ.Days.ToString()); //Son tarih ile bugün arasındaki fark
 
+                //hand_status TRUE ise satır yeşil
                 if (Boolean.Parse(dg.Rows[i].Cells[10].Value.ToString()) == true)
                 {
                     dg.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(80, 225, 60);
                 }
-                //Fark 2'den büyükse satır varsayılan renk olarak kalır
+                //Fark 2'den büyükse satır varsayılan renk
                 else if (value > 2)
                 {
                     dg.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(242, 242, 242);
                 }
-                //Teslim tarihine 2 gün veya daha az kalmışsa satır arkaplanı sarı olur
+                //Teslim tarihine 2 gün veya daha az kalmışsa sarı
                 else if (value <= 2 && value >= 0)
                 {
                     dg.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(250, 210, 10);
                 }
-                //Teslim tarihi geçmişse satır arkaplanı kırmızı olur
+                //Teslim tarihi geçmişse kırmızı 
                 else if (value < 0)
                 {
                     dg.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(250, 85, 85);
@@ -178,6 +181,7 @@ namespace LibraryApp
             materialLabel26.Text = row.Cells[6].Value.ToString();
         }
 
+        //Arama kutuları fonksiyonları
         private void materialTextBox1_TextChanged(object sender, EventArgs e)
         {
             #region LEGACY SEARCH
@@ -220,6 +224,12 @@ namespace LibraryApp
         {
             dgv_hand.DataSource = lh.SearchRecords(materialCBox_HandSearch.Text, materialTxt_HandSearch.Text);
         }
+        private void materialTextBox4_TextChanged(object sender, EventArgs e)
+        {
+            dgv_lh_list.DataSource = lh.SearchRecords(materialCBox_ListSearch.Text, materialTxt_ListSearch.Text);
+        }
+
+        //Satır rengine göre filtrelemeler
         private void materialCBox_list_filter_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (materialCBox_list_filter.Text == "All")
@@ -232,23 +242,19 @@ namespace LibraryApp
                 dgv_lh_list.DataSource = lh.SearchRecords("hand_status", "limbo");
         }
 
-        private void materialCBox_filter_SelectedIndexChanged(object sender, EventArgs e)
+        private void materialCBox_hand_filter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (materialCBox_filter.Text == "All")
+            if (materialCBox_hand_filter.Text == "All")
                 dgv_hand.DataSource = lh.GetRecords();
-            if (materialCBox_filter.Text == "Green")
+            if (materialCBox_hand_filter.Text == "Green")
                 dgv_hand.DataSource = lh.SearchRecords("hand_status", "true");
-            if (materialCBox_filter.Text == "Red")
+            if (materialCBox_hand_filter.Text == "Red")
                 dgv_hand.DataSource = lh.SearchRecords("hand_status", "false");
-            else if (materialCBox_filter.Text == "Yellow")
+            else if (materialCBox_hand_filter.Text == "Yellow")
                 dgv_hand.DataSource = lh.SearchRecords("hand_status", "limbo");
         }
 
-        private void materialTextBox4_TextChanged(object sender, EventArgs e)
-        {
-            dgv_lh_list.DataSource = lh.SearchRecords(materialCBox_ListSearch.Text, materialTxt_ListSearch.Text);
-        }
-
+        //Ödünç verme ekranında tıklanan hücre bilgilerini labela geçirir
         private void dgv_hand_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = this.dgv_hand.Rows[e.RowIndex];
@@ -268,6 +274,33 @@ namespace LibraryApp
             }
         }
 
+        //Satırları renklendirme
+        private void dgv_hand_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            ColorTable(dgv_hand);
+        }
+
+        private void dgv_lh_list_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            ColorTable(dgv_lh_list);
+        }
+
+        //Labellardaki değeri Entity objesine atayarak kitabı öğrenciye verir
+        private void materialBtn_hand_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lh.HandBook(Int32.Parse(materialLabel38.Text));
+                MessageBox.Show("Book has successfully handed.");
+                UpdateTable();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Select a record.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        //Labellardaki değeri Entity objesine atayarak kitabı geri verir
         private void materialBtn_lend_Click(object sender, EventArgs e)
         {
             LH_Entity lh_entity = new LH_Entity();
@@ -285,40 +318,17 @@ namespace LibraryApp
             }
         }
 
-        private void materialBtn_hand_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                lh.HandBook(Int32.Parse(materialLabel38.Text));
-                MessageBox.Show("Book has successfully handed.");
-                UpdateTable();
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Select a record.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void dgv_hand_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            ColorTable(dgv_hand);
-        }
-
-        private void dgv_lh_list_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            ColorTable(dgv_lh_list);
-        }
-
+        //DataGridView yenileme butonları
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             dgv_hand.DataSource = lh.GetRecords();
-            materialCBox_filter.Text = "All";
+            materialCBox_hand_filter.Text = "All";
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             dgv_lh_list.DataSource = lh.GetRecords();
-            materialCBox_filter.Text = "All";
+            materialCBox_hand_filter.Text = "All";
         }
     }
 }

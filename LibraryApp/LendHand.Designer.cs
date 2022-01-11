@@ -31,16 +31,18 @@ namespace LibraryApp
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LendHand));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage_listlend = new System.Windows.Forms.TabPage();
+            this.materialLabel44 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialCBox_list_filter = new MaterialSkin.Controls.MaterialComboBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.materialCBox_ListSearch = new MaterialSkin.Controls.MaterialComboBox();
             this.materialLabel42 = new MaterialSkin.Controls.MaterialLabel();
@@ -86,6 +88,8 @@ namespace LibraryApp
             this.materialTxt_LendSearchStd = new MaterialSkin.Controls.MaterialTextBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPage_hand = new System.Windows.Forms.TabPage();
+            this.materialLabel43 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialCBox_hand_filter = new MaterialSkin.Controls.MaterialComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.materialCBox_HandSearch = new MaterialSkin.Controls.MaterialComboBox();
             this.materialTxt_HandSearch = new MaterialSkin.Controls.MaterialTextBox();
@@ -109,10 +113,6 @@ namespace LibraryApp
             this.materialLabel14 = new MaterialSkin.Controls.MaterialLabel();
             this.dgv_hand = new System.Windows.Forms.DataGridView();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.materialCBox_filter = new MaterialSkin.Controls.MaterialComboBox();
-            this.materialLabel43 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialCBox_list_filter = new MaterialSkin.Controls.MaterialComboBox();
-            this.materialLabel44 = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabControl1.SuspendLayout();
             this.tabPage_listlend.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -163,6 +163,46 @@ namespace LibraryApp
             this.tabPage_listlend.Size = new System.Drawing.Size(1436, 787);
             this.tabPage_listlend.TabIndex = 2;
             this.tabPage_listlend.Text = "LIST";
+            // 
+            // materialLabel44
+            // 
+            this.materialLabel44.AutoSize = true;
+            this.materialLabel44.Depth = 0;
+            this.materialLabel44.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel44.Location = new System.Drawing.Point(845, 48);
+            this.materialLabel44.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel44.Name = "materialLabel44";
+            this.materialLabel44.Size = new System.Drawing.Size(36, 19);
+            this.materialLabel44.TabIndex = 8;
+            this.materialLabel44.Text = "Filter";
+            // 
+            // materialCBox_list_filter
+            // 
+            this.materialCBox_list_filter.AutoResize = false;
+            this.materialCBox_list_filter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCBox_list_filter.Depth = 0;
+            this.materialCBox_list_filter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.materialCBox_list_filter.DropDownHeight = 174;
+            this.materialCBox_list_filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.materialCBox_list_filter.DropDownWidth = 121;
+            this.materialCBox_list_filter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialCBox_list_filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCBox_list_filter.FormattingEnabled = true;
+            this.materialCBox_list_filter.IntegralHeight = false;
+            this.materialCBox_list_filter.ItemHeight = 43;
+            this.materialCBox_list_filter.Items.AddRange(new object[] {
+            "All",
+            "Green",
+            "Red",
+            "Yellow"});
+            this.materialCBox_list_filter.Location = new System.Drawing.Point(894, 34);
+            this.materialCBox_list_filter.MaxDropDownItems = 4;
+            this.materialCBox_list_filter.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialCBox_list_filter.Name = "materialCBox_list_filter";
+            this.materialCBox_list_filter.Size = new System.Drawing.Size(138, 49);
+            this.materialCBox_list_filter.StartIndex = 0;
+            this.materialCBox_list_filter.TabIndex = 7;
+            this.materialCBox_list_filter.SelectedIndexChanged += new System.EventHandler(this.materialCBox_list_filter_SelectedIndexChanged);
             // 
             // pictureBox2
             // 
@@ -262,17 +302,17 @@ namespace LibraryApp
             this.dgv_lh_list.Location = new System.Drawing.Point(0, 119);
             this.dgv_lh_list.Name = "dgv_lh_list";
             this.dgv_lh_list.ReadOnly = true;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_lh_list.RowHeadersDefaultCellStyle = dataGridViewCellStyle25;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.Black;
-            this.dgv_lh_list.RowsDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_lh_list.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dgv_lh_list.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_lh_list.Size = new System.Drawing.Size(1384, 668);
             this.dgv_lh_list.TabIndex = 0;
             this.dgv_lh_list.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_lh_list_CellFormatting);
@@ -775,16 +815,16 @@ namespace LibraryApp
             this.dgv_lh_books.Location = new System.Drawing.Point(735, 146);
             this.dgv_lh_books.Name = "dgv_lh_books";
             this.dgv_lh_books.ReadOnly = true;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_lh_books.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.dgv_lh_books.RowsDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_lh_books.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.dgv_lh_books.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_lh_books.Size = new System.Drawing.Size(610, 400);
             this.dgv_lh_books.TabIndex = 3;
             this.dgv_lh_books.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_lh_books_CellClick);
@@ -801,16 +841,16 @@ namespace LibraryApp
             this.dgv_lh_students.Location = new System.Drawing.Point(46, 146);
             this.dgv_lh_students.Name = "dgv_lh_students";
             this.dgv_lh_students.ReadOnly = true;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_lh_students.RowHeadersDefaultCellStyle = dataGridViewCellStyle29;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.dgv_lh_students.RowsDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_lh_students.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.dgv_lh_students.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_lh_students.Size = new System.Drawing.Size(610, 400);
             this.dgv_lh_students.TabIndex = 2;
             this.dgv_lh_students.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_lh_students_CellClick);
@@ -849,7 +889,7 @@ namespace LibraryApp
             // 
             this.tabPage_hand.BackColor = System.Drawing.Color.White;
             this.tabPage_hand.Controls.Add(this.materialLabel43);
-            this.tabPage_hand.Controls.Add(this.materialCBox_filter);
+            this.tabPage_hand.Controls.Add(this.materialCBox_hand_filter);
             this.tabPage_hand.Controls.Add(this.pictureBox1);
             this.tabPage_hand.Controls.Add(this.materialCBox_HandSearch);
             this.tabPage_hand.Controls.Add(this.materialTxt_HandSearch);
@@ -867,6 +907,45 @@ namespace LibraryApp
             this.tabPage_hand.Size = new System.Drawing.Size(1436, 787);
             this.tabPage_hand.TabIndex = 1;
             this.tabPage_hand.Text = "HAND BOOK";
+            // 
+            // materialLabel43
+            // 
+            this.materialLabel43.AutoSize = true;
+            this.materialLabel43.Depth = 0;
+            this.materialLabel43.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel43.Location = new System.Drawing.Point(847, 48);
+            this.materialLabel43.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel43.Name = "materialLabel43";
+            this.materialLabel43.Size = new System.Drawing.Size(36, 19);
+            this.materialLabel43.TabIndex = 13;
+            this.materialLabel43.Text = "Filter";
+            // 
+            // materialCBox_hand_filter
+            // 
+            this.materialCBox_hand_filter.AutoResize = false;
+            this.materialCBox_hand_filter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCBox_hand_filter.Depth = 0;
+            this.materialCBox_hand_filter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.materialCBox_hand_filter.DropDownHeight = 174;
+            this.materialCBox_hand_filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.materialCBox_hand_filter.DropDownWidth = 121;
+            this.materialCBox_hand_filter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialCBox_hand_filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCBox_hand_filter.FormattingEnabled = true;
+            this.materialCBox_hand_filter.IntegralHeight = false;
+            this.materialCBox_hand_filter.ItemHeight = 43;
+            this.materialCBox_hand_filter.Items.AddRange(new object[] {
+            "All",
+            "Green",
+            "Red"});
+            this.materialCBox_hand_filter.Location = new System.Drawing.Point(904, 34);
+            this.materialCBox_hand_filter.MaxDropDownItems = 4;
+            this.materialCBox_hand_filter.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialCBox_hand_filter.Name = "materialCBox_hand_filter";
+            this.materialCBox_hand_filter.Size = new System.Drawing.Size(132, 49);
+            this.materialCBox_hand_filter.StartIndex = 0;
+            this.materialCBox_hand_filter.TabIndex = 12;
+            this.materialCBox_hand_filter.SelectedIndexChanged += new System.EventHandler(this.materialCBox_hand_filter_SelectedIndexChanged);
             // 
             // pictureBox1
             // 
@@ -1171,17 +1250,17 @@ namespace LibraryApp
             this.dgv_hand.EnableHeadersVisualStyles = false;
             this.dgv_hand.Location = new System.Drawing.Point(0, 119);
             this.dgv_hand.Name = "dgv_hand";
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_hand.RowHeadersDefaultCellStyle = dataGridViewCellStyle31;
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.Black;
-            this.dgv_hand.RowsDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_hand.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.dgv_hand.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgv_hand.Size = new System.Drawing.Size(1384, 351);
             this.dgv_hand.TabIndex = 1;
             this.dgv_hand.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_hand_CellClick);
@@ -1194,85 +1273,6 @@ namespace LibraryApp
             this.ımageList1.Images.SetKeyName(0, "givebook.png");
             this.ımageList1.Images.SetKeyName(1, "takebook.png");
             this.ımageList1.Images.SetKeyName(2, "book-text-icon-10.png");
-            // 
-            // materialCBox_filter
-            // 
-            this.materialCBox_filter.AutoResize = false;
-            this.materialCBox_filter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCBox_filter.Depth = 0;
-            this.materialCBox_filter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialCBox_filter.DropDownHeight = 174;
-            this.materialCBox_filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialCBox_filter.DropDownWidth = 121;
-            this.materialCBox_filter.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialCBox_filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCBox_filter.FormattingEnabled = true;
-            this.materialCBox_filter.IntegralHeight = false;
-            this.materialCBox_filter.ItemHeight = 43;
-            this.materialCBox_filter.Items.AddRange(new object[] {
-            "All",
-            "Green",
-            "Red"});
-            this.materialCBox_filter.Location = new System.Drawing.Point(904, 34);
-            this.materialCBox_filter.MaxDropDownItems = 4;
-            this.materialCBox_filter.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialCBox_filter.Name = "materialCBox_filter";
-            this.materialCBox_filter.Size = new System.Drawing.Size(132, 49);
-            this.materialCBox_filter.StartIndex = 0;
-            this.materialCBox_filter.TabIndex = 12;
-            this.materialCBox_filter.SelectedIndexChanged += new System.EventHandler(this.materialCBox_filter_SelectedIndexChanged);
-            // 
-            // materialLabel43
-            // 
-            this.materialLabel43.AutoSize = true;
-            this.materialLabel43.Depth = 0;
-            this.materialLabel43.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel43.Location = new System.Drawing.Point(847, 48);
-            this.materialLabel43.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel43.Name = "materialLabel43";
-            this.materialLabel43.Size = new System.Drawing.Size(36, 19);
-            this.materialLabel43.TabIndex = 13;
-            this.materialLabel43.Text = "Filter";
-            // 
-            // materialCBox_list_filter
-            // 
-            this.materialCBox_list_filter.AutoResize = false;
-            this.materialCBox_list_filter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCBox_list_filter.Depth = 0;
-            this.materialCBox_list_filter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialCBox_list_filter.DropDownHeight = 174;
-            this.materialCBox_list_filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialCBox_list_filter.DropDownWidth = 121;
-            this.materialCBox_list_filter.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialCBox_list_filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCBox_list_filter.FormattingEnabled = true;
-            this.materialCBox_list_filter.IntegralHeight = false;
-            this.materialCBox_list_filter.ItemHeight = 43;
-            this.materialCBox_list_filter.Items.AddRange(new object[] {
-            "All",
-            "Green",
-            "Red",
-            "Yellow"});
-            this.materialCBox_list_filter.Location = new System.Drawing.Point(894, 34);
-            this.materialCBox_list_filter.MaxDropDownItems = 4;
-            this.materialCBox_list_filter.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialCBox_list_filter.Name = "materialCBox_list_filter";
-            this.materialCBox_list_filter.Size = new System.Drawing.Size(138, 49);
-            this.materialCBox_list_filter.StartIndex = 0;
-            this.materialCBox_list_filter.TabIndex = 7;
-            this.materialCBox_list_filter.SelectedIndexChanged += new System.EventHandler(this.materialCBox_list_filter_SelectedIndexChanged);
-            // 
-            // materialLabel44
-            // 
-            this.materialLabel44.AutoSize = true;
-            this.materialLabel44.Depth = 0;
-            this.materialLabel44.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel44.Location = new System.Drawing.Point(845, 48);
-            this.materialLabel44.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel44.Name = "materialLabel44";
-            this.materialLabel44.Size = new System.Drawing.Size(36, 19);
-            this.materialLabel44.TabIndex = 8;
-            this.materialLabel44.Text = "Filter";
             // 
             // LendHand
             // 
@@ -1386,7 +1386,7 @@ namespace LibraryApp
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private MaterialSkin.Controls.MaterialLabel materialLabel43;
-        private MaterialSkin.Controls.MaterialComboBox materialCBox_filter;
+        private MaterialSkin.Controls.MaterialComboBox materialCBox_hand_filter;
         private MaterialSkin.Controls.MaterialLabel materialLabel44;
         private MaterialSkin.Controls.MaterialComboBox materialCBox_list_filter;
     }

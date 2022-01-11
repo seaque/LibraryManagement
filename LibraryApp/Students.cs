@@ -87,7 +87,7 @@ namespace LibraryApp
             dgv_std_delete.DataSource = std.GetStudents();
         }
 
-        //Formdaki bilgilerle Entity değişkeni doldurulur ve katmanlar aracılığıyla ekleme sağlanır
+        //Formdaki bilgiler Entity objesine atanır ve ekleme sağlanır
         private void materialBtn_add_submit_Click(object sender, EventArgs e)
         {
             try
