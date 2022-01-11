@@ -17,8 +17,7 @@ namespace DAL
             DBConn = new DBConnection();
         }
 
-        //Entity tipinden değişken alan listeye sorgu ile veri çekilir
-        //ve fonksiyona geri döndürür
+        //Tüm öğrencileri listeleme
         public List<Student_Entity> GetStudents()
         {
             string query = "select * from Student;";
@@ -43,8 +42,7 @@ namespace DAL
             return student;
         }
 
-        //Student_Entity tipinden değer alan ekleme fonksiyonunda
-        //sorgu aracılığıyla değişkenlere değerler atanarak ekleme sağlanır
+        //Student_Entity objesine değerler atayarak ekleme
         public void AddStudent (Student_Entity student)
         {
             string query = "Insert into Student (student_ID, student_name, student_surname, student_mail) values (@ID, @NAME, @SURNAME, @MAIL)";
@@ -58,8 +56,8 @@ namespace DAL
             cmd.Connection.Close();
         }
 
-        //Student_Entity tipinden değer alan güncelleme fonksiyonunda
-        //sorgu aracılığıyla değişkenlere değerler atanarak güncelleme sağlanır
+        //Student_Entity objesine değerler atayarak öğrenci
+        //bilgilerini üzerine yazma yöntemiyle günceller
         public void UpdateStudent(Student_Entity student)
         {
             OleDbCommand cmd = DBConn.GetOleDbCommand();
@@ -76,7 +74,7 @@ namespace DAL
             cmd.Connection.Close();
         }
 
-        //Öğrenci numarası parametresi alan silme fonksiyonu
+        //Öğrenci numarası kullanan silme fonksiyonu
         public void DeleteStudent(int student)
         {
             OleDbCommand cmd = DBConn.GetOleDbCommand();
@@ -87,8 +85,7 @@ namespace DAL
             cmd.Connection.Close();
         }
 
-        //Öğrenci tablosundaki sütunların seçimine göre arama yapmayı sağlar
-        //ve aranan değere benzer değerleri entity listesi tipinde geri döndürür
+        //Öğrenci tablosunda seçilen sütuna göre tam veya benzer değerleri arama
         public List<Student_Entity> SearchStudent(string column, string key)
         {
             OleDbCommand cmd = DBConn.GetOleDbCommand();

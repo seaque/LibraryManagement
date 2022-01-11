@@ -17,8 +17,7 @@ namespace DAL
             DBConn = new DBConnection();
         }
 
-        //Entity tipinden değişken alan listeye sorgu ile veri çekilir
-        //ve fonksiyona geri döndürür
+        //Tüm kitapları listeleme
         public List<Book_Entity> GetBooks()
         {
             OleDbCommand cmd = DBConn.GetOleDbCommand();
@@ -44,8 +43,7 @@ namespace DAL
             return book;
         }
 
-        //Kitap tablosundaki Kategori sütununda bulunan değerleri
-        //String listesi biçiminde geri döndürür
+        //Tüm kategorileri listeleme
         public List<String> GetCategories()
         {
             var category_list = new List<String>();
@@ -59,8 +57,7 @@ namespace DAL
             return category_list;
         }
 
-        //Kitap tablosundaki Yayıncı sütununda bulunan değerleri
-        //String listesi biçiminde geri döndürür
+        //Tüm yayınevlerini listeleme
         public List<String> GetPublishers()
         {
             var publisher_list = new List<String>();
@@ -74,8 +71,7 @@ namespace DAL
             return publisher_list;
         }
 
-        //Kitap tablosundaki Yazar sütununda bulunan değerleri
-        //String listesi biçiminde geri döndürür
+        //Tüm yazarları listeleme
         public List<String> GetWriters()
         {
             var writer_list = new List<String>();
@@ -103,8 +99,7 @@ namespace DAL
             return book_count;
         }
 
-        //Book_Entity tipinden değer alan ekleme fonksiyonunda
-        //sorgu aracılığıyla değişkenlere değerler atanarak ekleme sağlanır
+        //Book_Entity objesine değerler atayarak kitap ekleme
         public void AddBook(Book_Entity book)
         {
             string query = "Insert into Book (book_ISBN, book_name, book_category, book_page, book_year, book_writer, book_publisher) values" +
@@ -122,8 +117,7 @@ namespace DAL
             cmd.Connection.Close();
         }
 
-        //Book_Entity tipinden değer alan fonksiyonda sorgu aracılığıyla
-        //değişkenlere değerler atanarak Kategori eklemesi sağlanır
+        //Book_Entity objesine değerler atayarak kategori ekleme
         public void AddCategory(Book_Entity book)
         {
             string query = "Insert into Category (book_category) values (@CATEGORY)";
@@ -134,8 +128,7 @@ namespace DAL
             cmd.Connection.Close();
         }
 
-        //Book_Entity tipinden değer alan fonksiyonda sorgu aracılığıyla
-        //değişkenlere değerler atanarak Yazar eklemesi sağlanır
+        //Book_Entity objesine değerler atayarak yazar ekleme
         public void AddWriter(Book_Entity book)
         {
             string query = "Insert into Writer (writer_name) values (@NAME)";
@@ -146,8 +139,7 @@ namespace DAL
             cmd.Connection.Close();
         }
 
-        //Book_Entity tipinden değer alan fonksiyonda sorgu aracılığıyla
-        //değişkenlere değerler atanarak Yayıncı eklemesi sağlanır
+        //Book_Entity objesine değerler atayarak yayınevi ekleme
         public void AddPublisher(Book_Entity book)
         {
             string query = "Insert into Publisher (publisher_name) values (@NAME)";
@@ -158,8 +150,8 @@ namespace DAL
             cmd.Connection.Close();
         }
 
-        //Book_Entity tipinden değer alan güncelleme fonksiyonunda
-        //sorgu aracılığıyla değişkenlere değerler atanarak güncelleme sağlanır
+        //Book_Entity objesine değerler atayarak kitap
+        //bilgilerini üzerine yazma yöntemiyle günceller
         public void UpdateBook(Book_Entity book)
         {
             OleDbCommand cmd = DBConn.GetOleDbCommand();
@@ -183,7 +175,7 @@ namespace DAL
             cmd.Connection.Close();
         }
 
-        //Kitap ISBN parametresi alan silme fonksiyonu
+        //Kitap ISBN numarası kullanarak silme fonksiyonu
         public void DeleteBook(string book)
         {
             OleDbCommand cmd = DBConn.GetOleDbCommand();
@@ -194,8 +186,7 @@ namespace DAL
             cmd.Connection.Close();
         }
 
-        //Kitap tablosundaki sütunların seçimine göre arama yapmayı sağlar
-        //ve aranan değere benzer değerleri entity listesi tipinde geri döndürür
+        //Kitap tablosunda seçilen sütuna göre tam veya benzer değerleri arama
         public List<Book_Entity> SearchBook(string column, string key)
         {
             OleDbCommand cmd = DBConn.GetOleDbCommand();

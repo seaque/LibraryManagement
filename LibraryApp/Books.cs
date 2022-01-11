@@ -97,7 +97,7 @@ namespace LibraryApp
             UpdateComboBox();
         }
 
-        //Kategori, Yazar, Yayıncı ekleme kısmının + sembolü ile kontrolü
+        //Kategori, Yazar, Yayınevi ekleme kısmının + sembolü ile kontrolü
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             //Döngüsel görünüm
@@ -118,7 +118,7 @@ namespace LibraryApp
             Application.DoEvents();
         }
 
-        //Kategori, Yazar, Yayıncı ekleme
+        //Kategori, Yazar, Yayınevi ekleme
         private void materialBtn_AddCWP_Click(object sender, EventArgs e)
         {
             //Radyo butonunda seçilen değer kontrolü
