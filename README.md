@@ -1,4 +1,4 @@
-Kütüphane Veritabanı Dosyası: *C:\Users\username\AppData\Roaming\LibraryManagement*
+Kütüphane Veritabanı Dosyası: *%appdata%\LibraryManagement*
 <hr>
 
 ### Üç Katmanlı Mimari
