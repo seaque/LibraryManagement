@@ -25,7 +25,7 @@ namespace DAL
             cmd.CommandText = query;
 
             List<Student_Entity> student = new List<Student_Entity>();
-            OleDbDataReader rdr = cmd.ExecuteReader();
+            OleDbDataReader rdr = cmd.ExecuteReader(); //Veritabanına sorgu yollanır ve datareader objesi oluşur
 
             while (rdr.Read())
             {
@@ -92,9 +92,9 @@ namespace DAL
             cmd.CommandText = String.Format("SELECT * FROM Student WHERE {0} LIKE '%{1}%'", column, key);
 
             List<Student_Entity> student = new List<Student_Entity>();
-            OleDbDataReader rdr = cmd.ExecuteReader();
+            OleDbDataReader rdr = cmd.ExecuteReader(); //Veritabanına sorgu yollanır ve datareader objesi oluşur
 
-            while (rdr.Read())
+            while (rdr.Read()) 
             {
                 Student_Entity std = new Student_Entity();
                 std.student_ID = Int32.Parse(rdr["student_ID"].ToString());

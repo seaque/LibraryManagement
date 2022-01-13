@@ -23,14 +23,13 @@ namespace DAL
         //sütunları da yansıtabilmek için tablolar sorguda INNER JOIN ile birleştirilir
         public List<LH_Entity> GetRecords()
         {
-            OleDbCommand cmd = DBConn.GetOleDbCommand();
+            OleDbCommand cmd = DBConn.GetOleDbCommand(); //Veritabanı bağlantısı kurulur
             cmd.CommandText = "select LendHand.lh_ID, Student.student_ID, Student.student_name, Student.student_surname, " +
                               "Book.book_ISBN, Book.book_name, LendHand.lend_date, LendHand.hand_date, LendHand.last_date, LendHand.late_fee, LendHand.hand_status " +
                               "from Student INNER JOIN (Book INNER JOIN LendHand ON Book.book_ISBN = LendHand.book_ISBN) " +
                               "ON Student.student_ID = LendHand.student_ID";
-
             List<LH_Entity> lendhand = new List<LH_Entity>();
-            OleDbDataReader rdr = cmd.ExecuteReader();
+            OleDbDataReader rdr = cmd.ExecuteReader(); //Veritabanına sorgu yollanır ve datareader objesi oluşur
 
             while (rdr.Read())
             {
@@ -62,14 +61,13 @@ namespace DAL
                            "LendHand.lend_date, LendHand.last_date, LendHand.hand_date, LendHand.hand_status " +
                            "FROM Student INNER JOIN(Book INNER JOIN LendHand ON Book.book_ISBN = LendHand.book_ISBN) " +
                            "ON Student.student_ID = LendHand.student_ID WHERE Book.book_ISBN = @ISBN";
-            OleDbCommand cmd = DBConn.GetOleDbCommand();
+            OleDbCommand cmd = DBConn.GetOleDbCommand(); //Veritabanı bağlantısı kurulur
             cmd.CommandText = query;
             cmd.Parameters.AddWithValue("@ISBN", book_ISBN);
-
             List<LH_Entity> lendhand = new List<LH_Entity>();
-            OleDbDataReader rdr = cmd.ExecuteReader();
+            OleDbDataReader rdr = cmd.ExecuteReader(); //Veritabanına sorgu yollanır ve datareader objesi oluşur
 
-            while (rdr.Read())
+            while (rdr.Read()) 
             {
                 LH_Entity lh = new LH_Entity();
                 lh.book_ISBN = rdr["book_ISBN"].ToString();
@@ -96,14 +94,13 @@ namespace DAL
                            "LendHand.lend_date, LendHand.last_date, LendHand.hand_date, LendHand.late_fee, LendHand.hand_status " +
                            "FROM Student INNER JOIN(Book INNER JOIN LendHand ON Book.book_ISBN = LendHand.book_ISBN) " +
                            "ON Student.student_ID = LendHand.student_ID WHERE LendHand.student_ID = @ID; ";
-            OleDbCommand cmd = DBConn.GetOleDbCommand();
+            OleDbCommand cmd = DBConn.GetOleDbCommand(); //Veritabanı bağlantısı kurulur
             cmd.CommandText = query;
             cmd.Parameters.AddWithValue("@ID", student_ID);
-
             List<LH_Entity> lendhand = new List<LH_Entity>();
-            OleDbDataReader rdr = cmd.ExecuteReader();
+            OleDbDataReader rdr = cmd.ExecuteReader(); //Veritabanına sorgu yollanır ve datareader objesi oluşur
 
-            while (rdr.Read())
+            while (rdr.Read()) 
             {
                 LH_Entity lh = new LH_Entity();
                 lh.student_ID = Int32.Parse(rdr["student_ID"].ToString());
@@ -116,7 +113,7 @@ namespace DAL
                 lh.hand_status = Boolean.Parse(rdr["hand_status"].ToString());
                 lendhand.Add(lh);
             }
-            //İşlem tamamlandıktan sonra db bağlantısı kapatılıyor
+            //Veritabanı bağlantısı kapatılıyor
             rdr.Close();
             cmd.Connection.Close();
             return lendhand;
@@ -127,11 +124,11 @@ namespace DAL
         {
             string query = "Insert into LendHand (book_ISBN, student_ID) values" +
                            "(@ISBN, @STDID)";
-            OleDbCommand cmd = DBConn.GetOleDbCommand();
+            OleDbCommand cmd = DBConn.GetOleDbCommand(); //Veritabanı bağlantısı kurulur
             cmd.CommandText = query;
             cmd.Parameters.AddWithValue("@ISBN", lh.book_ISBN);
             cmd.Parameters.AddWithValue("@STDID", lh.student_ID);
-            cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery(); //Veritabanına sorgu yollanır
             cmd.Connection.Close();
         }
 
@@ -141,10 +138,10 @@ namespace DAL
             string query = "UPDATE Book INNER JOIN LendHand ON Book.book_ISBN = LendHand.book_ISBN " +
                            "SET LendHand.hand_date = Date(), LendHand.hand_status = True " +
                            "WHERE(((LendHand.lh_ID) = @ID));";
-            OleDbCommand cmd = DBConn.GetOleDbCommand();
+            OleDbCommand cmd = DBConn.GetOleDbCommand(); //Veritabanı bağlantısı kurulur
             cmd.CommandText = query;
             cmd.Parameters.AddWithValue("@ID", lh_ID);
-            cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery(); //Veritabanına sorgu yollanır
             cmd.Connection.Close();
         }
 
@@ -152,7 +149,7 @@ namespace DAL
         public int CountHandedBooks()
         {
             int handed_books = 0;
-            OleDbCommand cmd = DBConn.GetOleDbCommand();
+            OleDbCommand cmd = DBConn.GetOleDbCommand(); //Veritabanı bağlantısı kurulur
             cmd.CommandText = "SELECT Count(*) FROM LendHand WHERE hand_status = True";
             OleDbDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
@@ -168,16 +165,16 @@ namespace DAL
         {
             string query = "UPDATE LendHand SET LendHand.late_Fee = IIf ([LendHand]![lend_date] > [LendHand]![last_date], " +
                            "[LendHand]![hand_date] -[LendHand]![last_date], IIf(Now() >[LendHand]![last_date], Now() -[LendHand]![last_date] - 1, 0))";
-            OleDbCommand cmd = DBConn.GetOleDbCommand();
+            OleDbCommand cmd = DBConn.GetOleDbCommand(); //Veritabanı bağlantısı kurulur
             cmd.CommandText = query;
-            cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery(); //Veritabanına sorgu yollanır
             cmd.Connection.Close();
         }
 
         //Ödünç alınmış ve verilmiş kitapların listesini döndürür
         public List<LH_Entity> SearchRecords(string column, string key)
         {
-            OleDbCommand cmd = DBConn.GetOleDbCommand();
+            OleDbCommand cmd = DBConn.GetOleDbCommand(); //Veritabanı bağlantısı kurulur
             if (column == "hand_status")
             {
                 if (key == "true")
@@ -221,7 +218,7 @@ namespace DAL
             }
 
             List<LH_Entity> lendhand = new List<LH_Entity>();
-            OleDbDataReader rdr = cmd.ExecuteReader();
+            OleDbDataReader rdr = cmd.ExecuteReader(); //Veritabanına sorgu yollanır ve datareader objesi oluşur
 
             while (rdr.Read())
             {
@@ -240,7 +237,7 @@ namespace DAL
 
                 lendhand.Add(lh);
             }
-            //İşlem tamamlandıktan sonra veritabanı bağlantısı kapatılıyor
+            //Veritabanı bağlantısı kapatılıyor
             rdr.Close();
             cmd.Connection.Close();
             return lendhand;
