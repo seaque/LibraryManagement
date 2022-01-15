@@ -164,7 +164,8 @@ namespace DAL
         public void SetLateFee()
         {
             string query = "UPDATE LendHand SET LendHand.late_Fee = IIf ([LendHand]![lend_date] > [LendHand]![last_date], " +
-                           "[LendHand]![hand_date] -[LendHand]![last_date], IIf(Now() >[LendHand]![last_date], Now() -[LendHand]![last_date] - 1, 0))";
+                           "[LendHand]![hand_date] -[LendHand]![last_date], IIf(Now() >[LendHand]![last_date], Now() -[LendHand]![last_date] - 1, 0))" +
+                           "WHERE LendHand.hand_status = FALSE";
             OleDbCommand cmd = DBConn.GetOleDbCommand(); //Veritabanı bağlantısı kurulur
             cmd.CommandText = query;
             cmd.ExecuteNonQuery(); //Veritabanına sorgu yollanır
