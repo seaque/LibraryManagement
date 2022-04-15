@@ -1,5 +1,8 @@
-Veritabanı Dosyası: *%appdata%/LibraryManagement*
-<hr>
+### Gereksinimler
+- Microsoft .NET Framework 4+
+
+### Uygulama
+- Veritabanı Dosyası Dizini: *%appdata%/LibraryManagement*
 
 ### Üç Katmanlı Mimari
 
