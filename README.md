@@ -11,4 +11,6 @@
 - **İş katmanı**, bir uygulamanın yetkilendirmesiyle alakalı işlemleri gerçekleştirir. 
 - **Veri katmanı**, veri tabanları gibi yapılar ile etkileşime geçerek veriye ulaşımı sağlar. Normalde veri katmanı diğer katmanlarla bağımlılık kurmadan (örneğin bir API aracılığıyla) veriyi üst katmanlara sağlamalıdır.
 
-![Katmanlı Mimari](https://github.com/seaque/LibraryManagement/blob/main/img/Katmanl%C4%B1Mimari.png)
+<p align="center">
+<img src="https://github.com/seaque/LibraryManagement/blob/main/img/Katmanl%C4%B1Mimari.png">
+</p>
