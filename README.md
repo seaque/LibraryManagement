@@ -1,6 +1,7 @@
-[![.Net Framework](https://img.shields.io/badge/DotNet-4.7_Framework-blue.svg?style=plastic)](https://www.microsoft.com/net/download/dotnet-core/4.7)
+### Kütüphane Kayıtları
 
-### Uygulama
+[![.Net Framework](https://img.shields.io/badge/DotNet-4.7.2_Framework-blue.svg?style=plastic)](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net472)
+
 - Veritabanı Dosyası Dizini: *%appdata%/LibraryManagement*
 
 ### Katmanlı Mimari
