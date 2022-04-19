@@ -1,5 +1,4 @@
-### Gereksinimler
-- Microsoft .NET Framework 4+
+[![.Net Framework](https://img.shields.io/badge/DotNet-4.7_Framework-blue.svg?style=plastic)](https://www.microsoft.com/net/download/dotnet-core/4.7)
 
 ### Uygulama
 - Veritabanı Dosyası Dizini: *%appdata%/LibraryManagement*
